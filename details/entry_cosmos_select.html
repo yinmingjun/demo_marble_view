@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>详情 1 - Marble View</title>
+  <title>宇宙之眼 · 选择 - Marble View</title>
   <style>
     * {
       box-sizing: border-box;
@@ -52,13 +52,36 @@
       justify-content: center;
     }
 
-    .image-wrap img {
-      display: block;
+    .image-stage {
+      position: relative;
+      aspect-ratio: 5760 / 4096;
+      height: 100%;
       max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
+    }
+
+    .image-stage img {
+      display: block;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+    }
+
+    .hotspot {
+      position: absolute;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hotspot:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+    }
+
+    .hotspot:active {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .action-bar {
@@ -95,11 +118,22 @@
 <body>
   <div class="image-frame">
     <div class="image-wrap">
-      <img src="images/entry_detail1.png" alt="详情 1">
+      <div class="image-stage">
+        <img src="../images/cosmos_select.png" alt="宇宙之眼 · 选择">
+        <a class="hotspot" href="cosmos_page1.html"
+           style="left: 6%; top: 22%; width: 22%; height: 24%;"
+           title="光学 · 可见光能让我们看见什么？ / What does visible light allow us to see?"></a>
+        <a class="hotspot" href="cosmos_page2.html"
+           style="left: 76%; top: 32%; width: 22%; height: 24%;"
+           title="射电 · 没有可见光，该如何观察宇宙？ / How do we observe the universe without visible light?"></a>
+        <a class="hotspot" href="cosmos_page3.html"
+           style="left: 10%; top: 65%; width: 22%; height: 24%;"
+           title="中微子 · 不发光的部分，也可以被观察到吗？ / Can the invisible parts of the cosmos be detected?"></a>
+      </div>
     </div>
-    <nav class="action-bar">
-      <a href="entry.html">返回</a>
-    </nav>
+    <!-- <nav class="action-bar">
+      <a href="entry_cosmos.html">返回</a>
+    </nav> -->
   </div>
 </body>
 </html>
