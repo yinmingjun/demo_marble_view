@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>火星探秘 · 选择 - Marble View</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @keyframes circleReveal {
+      from {
+        clip-path: circle(0% at 50% 50%);
+      }
+      to {
+        clip-path: circle(150% at 50% 50%);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f7;
+      padding: 24px;
+    }
+
+    .image-frame {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: calc(100vh - 48px);
+      max-width: 100%;
+      max-height: calc(100vh - 48px);
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      animation: circleReveal 3s ease-in both;
+    }
+
+    .image-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-stage {
+      position: relative;
+      aspect-ratio: 5760 / 4096;
+      height: 100%;
+      max-width: 100%;
+    }
+
+    .image-stage img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hotspot {
+      position: absolute;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hotspot:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+    }
+
+    .hotspot:active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .action-bar {
+      display: flex;
+      flex-direction: row;
+      height: 64px;
+      flex-shrink: 0;
+      background: #fafafa;
+      border-top: 1px solid #e5e5e7;
+    }
+
+    .action-bar a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #1d1d1f;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background 0.15s ease;
+    }
+
+    .action-bar a:hover {
+      background: #efefef;
+    }
+
+    .action-bar a:active {
+      background: #e5e5e7;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-frame">
+    <div class="image-wrap">
+      <div class="image-stage">
+        <img src="images/mars2.png" alt="火星探秘 · 选择">
+        <a class="hotspot" href="mars_page1.html"
+           style="left: 68%; top: 25%; width: 22.5%; height: 17%;"
+           title="火星日落是蓝色？ / Are Mars sunsets blue?"></a>
+        <a class="hotspot" href="mars_page2.html"
+           style="left: 68%; top: 45%; width: 22.5%; height: 17%;"
+           title="火星曾经有水吗？ / Did Mars once have water?"></a>
+        <a class="hotspot" href="mars_page3.html"
+           style="left: 68%; top: 66%; width: 22.5%; height: 17%;"
+           title="火星仍然保存着什么？ / What does Mars still hold?"></a>
+      </div>
+    </div>
+    <nav class="action-bar">
+      <a href="entry_mars.html">返回</a>
+    </nav>
+  </div>
+</body>
+</html>

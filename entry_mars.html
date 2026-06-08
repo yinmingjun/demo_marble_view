@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>详情 3 - Marble View</title>
+  <title>火星探秘 - Marble View</title>
   <style>
     * {
       box-sizing: border-box;
@@ -52,6 +52,10 @@
       justify-content: center;
     }
 
+    .image-wrap a {
+      display: contents;
+    }
+
     .image-wrap img {
       display: block;
       max-width: 100%;
@@ -59,6 +63,7 @@
       width: auto;
       height: auto;
       object-fit: contain;
+      cursor: pointer;
     }
 
     .action-bar {
@@ -95,7 +100,9 @@
 <body>
   <div class="image-frame">
     <div class="image-wrap">
-      <img src="images/entry_detail3.png" alt="详情 3">
+      <a href="entry_mars_select.html" title="进入火星探秘">
+        <img src="images/mars1.png" alt="火星探秘">
+      </a>
     </div>
     <nav class="action-bar">
       <a href="entry.html">返回</a>
