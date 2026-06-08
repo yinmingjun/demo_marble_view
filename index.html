@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marble View</title>
+  <title>Main - Marble View</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     body {
@@ -18,51 +29,42 @@
       align-items: center;
       justify-content: center;
       background: #f5f5f7;
+      padding: 24px;
     }
 
-    .button-list {
+    .image-frame {
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 280px;
-    }
-
-    .nav-button {
-      display: block;
-      text-align: center;
-      padding: 20px 24px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: calc(100vh - 48px);
+      max-width: 100%;
+      max-height: calc(100vh - 48px);
+      background: #fff;
       border-radius: 12px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      animation: fadeIn 3s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    .nav-button:hover {
+    .image-frame:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-      filter: brightness(1.05);
     }
 
-    .nav-button:active {
-      transform: translateY(0);
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: pointer;
     }
-
-    .nav-button--blue   { background: #3478f6; }
-    .nav-button--green  { background: #34c759; }
-    .nav-button--orange { background: #ff9500; }
-    .nav-button--purple { background: #af52de; }
   </style>
 </head>
 <body>
-  <nav class="button-list">
-    <a class="nav-button nav-button--blue"   href="details/marble_blue.html">蓝色弹珠</a>
-    <a class="nav-button nav-button--green"  href="details/marble_green.html">绿色弹珠</a>
-    <a class="nav-button nav-button--orange" href="details/marble_orange.html">橙色弹珠</a>
-    <a class="nav-button nav-button--purple" href="details/marble_purple.html">紫色弹珠</a>
-  </nav>
+  <a href="entry.html" class="image-frame">
+    <img src="images/main.png" alt="Main">
+  </a>
 </body>
 </html>
