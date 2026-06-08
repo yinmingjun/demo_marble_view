@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marble View</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f7;
+    }
+
+    .button-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 280px;
+    }
+
+    .nav-button {
+      display: block;
+      text-align: center;
+      padding: 20px 24px;
+      border-radius: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      filter: brightness(1.05);
+    }
+
+    .nav-button:active {
+      transform: translateY(0);
+    }
+
+    .nav-button--blue   { background: #3478f6; }
+    .nav-button--green  { background: #34c759; }
+    .nav-button--orange { background: #ff9500; }
+    .nav-button--purple { background: #af52de; }
+  </style>
+</head>
+<body>
+  <nav class="button-list">
+    <a class="nav-button nav-button--blue"   href="details/marble_blue.html">蓝色弹珠</a>
+    <a class="nav-button nav-button--green"  href="details/marble_green.html">绿色弹珠</a>
+    <a class="nav-button nav-button--orange" href="details/marble_orange.html">橙色弹珠</a>
+    <a class="nav-button nav-button--purple" href="details/marble_purple.html">紫色弹珠</a>
+  </nav>
+</body>
+</html>
