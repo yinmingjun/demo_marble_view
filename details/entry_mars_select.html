@@ -113,20 +113,58 @@
     .action-bar a:active {
       background: #e5e5e7;
     }
+    .home-link {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .home-link:hover {
+      background: rgba(0, 0, 0, 0.6);
+      transform: scale(1.05);
+    }
+
+    .home-link:active {
+      transform: scale(0.95);
+    }
+
+    .home-link svg {
+      width: 20px;
+      height: 20px;
+    }
   </style>
 </head>
 <body>
+  <a class="home-link" href="../index.html" title="回到首页" aria-label="Home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V9.5z"/>
+    </svg>
+  </a>
   <div class="image-frame">
     <div class="image-wrap">
       <div class="image-stage">
         <img src="../images/mars2.png" alt="火星探秘 · 选择">
-        <a class="hotspot" href="mars_page1.html"
+        <a class="hotspot" href="https://marble.worldlabs.ai/worldvr/29ff3be2-ac54-4fa1-a292-24834d2b9bd6" target="_blank" rel="noopener noreferrer"
            style="left: 68%; top: 25%; width: 22.5%; height: 17%;"
            title="火星日落是蓝色？ / Are Mars sunsets blue?"></a>
-        <a class="hotspot" href="mars_page2.html"
+        <a class="hotspot" href="https://marble.worldlabs.ai/worldvr/07b1bcda-706c-4637-82d9-060db83a991a" target="_blank" rel="noopener noreferrer"
            style="left: 68%; top: 45%; width: 22.5%; height: 17%;"
            title="火星曾经有水吗？ / Did Mars once have water?"></a>
-        <a class="hotspot" href="mars_page3.html"
+        <a class="hotspot" href="https://marble.worldlabs.ai/worldvr/6c273d69-94e0-4945-b3a9-5d24ec120870" target="_blank" rel="noopener noreferrer"
            style="left: 68%; top: 66%; width: 22.5%; height: 17%;"
            title="火星仍然保存着什么？ / What does Mars still hold?"></a>
       </div>

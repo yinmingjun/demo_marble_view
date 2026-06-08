@@ -95,9 +95,47 @@
     .action-bar a:active {
       background: #e5e5e7;
     }
+    .home-link {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .home-link:hover {
+      background: rgba(0, 0, 0, 0.6);
+      transform: scale(1.05);
+    }
+
+    .home-link:active {
+      transform: scale(0.95);
+    }
+
+    .home-link svg {
+      width: 20px;
+      height: 20px;
+    }
   </style>
 </head>
 <body>
+  <a class="home-link" href="../index.html" title="回到首页" aria-label="Home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V9.5z"/>
+    </svg>
+  </a>
   <div class="image-frame">
     <div class="image-wrap">
       <a href="entry_cosmos_select.html" title="进入宇宙之眼">
