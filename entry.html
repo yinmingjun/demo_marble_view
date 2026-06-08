@@ -11,15 +11,6 @@
       padding: 0;
     }
 
-    @keyframes circleReveal {
-      from {
-        clip-path: circle(0% at 50% 50%);
-      }
-      to {
-        clip-path: circle(150% at 50% 50%);
-      }
-    }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       min-height: 100vh;
@@ -39,14 +30,53 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      animation: circleReveal 3s ease-in both;
     }
 
-    .image-frame img {
-      display: block;
+    .entrance-video,
+    .final-image {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+    }
+
+    .entrance-video {
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.6s ease;
+    }
+
+    .final-image {
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .image-frame.video-ended .entrance-video {
+      opacity: 0;
+    }
+
+    .image-frame.video-ended .final-image {
+      opacity: 1;
+    }
+
+    .video-mask {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 8%;
+      background: #000;
+      z-index: 2;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+
+    .video-mask-top { top: 0; }
+    .video-mask-bottom { bottom: 0; }
+
+    .image-frame.video-ended .video-mask {
+      opacity: 0;
     }
 
     .zone {
@@ -60,7 +90,12 @@
       background: transparent;
       border: 2px solid transparent;
       transition: background 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .image-frame.video-ended .zone {
+      pointer-events: auto;
     }
 
     .zone:hover {
@@ -87,14 +122,87 @@
       pointer-events: none;
       white-space: nowrap;
     }
+
+    .floating-texts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .floating-text {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+      animation: drift var(--dur, 20s) ease-in-out var(--delay, 0s) infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0); }
+      25%      { transform: translate(12px, -8px); }
+      50%      { transform: translate(-8px, 12px); }
+      75%      { transform: translate(8px, 6px); }
+    }
+
+    .floating-text.clickable {
+      pointer-events: auto;
+      cursor: pointer;
+      text-decoration: none;
+      transition: text-shadow 0.2s ease, transform 0.2s ease, font-size 0.2s ease;
+    }
+
+    .floating-text.clickable:hover {
+      font-size: 15px;
+      text-shadow: 0 0 12px currentColor, 0 0 6px rgba(0, 0, 0, 0.7);
+      transform: translate(0, 0) scale(1.08);
+    }
+
+    .floating-text .ft-sub {
+      display: block;
+      font-size: 0.7em;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
   </style>
 </head>
 <body>
   <div class="image-frame">
-    <img src="images/entry.png" alt="Entry">
-    <a class="zone"
-       data-coord="x:48% y:11% w:12% h:20% → 走近太阳"
-       style="--x: 52%; --y: 11%; --w: 12%; --h: 20%;"
+    <video class="entrance-video" src="images/entry_mov.mp4" autoplay muted playsinline></video>
+    <img class="final-image" src="images/entry.png" alt="Entry">
+    <div class="video-mask video-mask-top"></div>
+    <div class="video-mask video-mask-bottom"></div>
+
+    <div class="floating-texts">
+      <span class="floating-text" style="left: 18%; top: 20%; --dur: 18s; --delay: 0s;">0 s</span>
+      <span class="floating-text" style="left: 33%; top: 20%; --dur: 22s; --delay: -3s;">10⁻³² s</span>
+      <span class="floating-text" style="left: 50%; top: 20%; --dur: 24s; --delay: -5s;">380 kyr</span>
+      <span class="floating-text" style="left: 65%; top: 20%; --dur: 20s; --delay: -7s;">100 Myr</span>
+      <span class="floating-text" style="left: 84%; top: 20%; --dur: 26s; --delay: -2s;">13.8 Gyr</span>
+
+      <span class="floating-text" style="left: 49%; top: 50%; --dur: 20s; --delay: -1s; font-weight: 700;">ZOOM 100X</span>
+
+      <span class="floating-text" style="left: 18%; top: 78%; --dur: 19s; --delay: -4s;">BIG BANG</span>
+      <span class="floating-text" style="left: 33%; top: 78%; --dur: 23s; --delay: -6s;">COSMIC INFLATION</span>
+      <span class="floating-text" style="left: 50%; top: 78%; --dur: 25s; --delay: -8s;">RECOMBINATION</span>
+      <span class="floating-text" style="left: 65%; top: 78%; --dur: 21s; --delay: -3s;">FIRST STARS</span>
+      <span class="floating-text" style="left: 84%; top: 78%; --dur: 27s; --delay: -1s;">PRESENT DAY</span>
+
+      <a class="floating-text clickable" style="left: 60%; top: 28%; --dur: 28s; --delay: -10s; color: rgba(255, 255, 255, 0.75); font-weight: 700;" href="entry_detail1.html" title="走近太阳 - Approaching the Sun">走近太阳<span class="ft-sub">Approaching the Sun</span></a>
+      <a class="floating-text clickable" style="left: 80%; top: 52%; --dur: 30s; --delay: -12s; color: rgba(255, 255, 255, 0.75); font-weight: 700;" href="entry_detail2.html" title="宇宙之眼 - Eve of the Cosmos">宇宙之眼<span class="ft-sub">Eve of the Cosmos</span></a>
+      <a class="floating-text clickable" style="left: 38%; top: 67%; --dur: 26s; --delay: -15s; color: rgba(255, 255, 255, 0.75); font-weight: 700;" href="entry_detail3.html" title="火星探秘 - Mars Exploration">火星探秘<span class="ft-sub">Mars Exploration</span></a>
+    </div>
+
+    <!-- <a class="zone"
+       data-coord="x:52% y:15% w:12% h:20% → 走近太阳"
+       style="--x: 52%; --y: 15%; --w: 12%; --h: 20%;"
        href="entry_detail1.html"
        title="走近太阳 - Approaching the Sun"></a>
     <a class="zone"
@@ -107,11 +215,25 @@
        style="--x: 40%; --y: 59%; --w: 14%; --h: 19%;"
        href="entry_detail3.html"
        title="火星探秘 - Mars Exploration"></a>
-  </div>
+  </div> -->
   <script>
     if (new URLSearchParams(location.search).has('debug')) {
       document.querySelector('.image-frame').classList.add('debug');
     }
+
+    var video = document.querySelector('.entrance-video');
+    var frame = document.querySelector('.image-frame');
+
+    function showFinal() {
+      frame.classList.add('video-ended');
+    }
+
+    video.addEventListener('error', showFinal);
+
+    setTimeout(function () {
+      video.pause();
+      showFinal();
+    }, 5000);
   </script>
 </body>
 </html>
