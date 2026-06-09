@@ -14,12 +14,7 @@ https://yinmingjun.github.io/demo_marble_view/
 
 无构建步骤,直接用浏览器打开 `index.html` 即可。所有跳转使用相对路径,目录结构不能打乱。
 
-如需打开浏览器对自动播放策略宽松一些(entry 页有开场视频),可在项目根目录起一个本地静态服务,例如:
 
-```
-python3 -m http.server 8080
-# 然后访问 http://localhost:8080/
-```
 
 ## 页面流程
 
