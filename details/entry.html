@@ -49,14 +49,12 @@
     .entrance-video {
       z-index: 1;
       opacity: 1;
-      transition: opacity 0.6s ease;
     }
 
     .final-image {
       z-index: 0;
       opacity: 0;
       transform: translateY(15px);
-      transition: opacity 0.6s ease;
     }
 
     .image-frame.video-ended .entrance-video {
@@ -67,6 +65,14 @@
       opacity: 1;
     }
 
+    .image-frame.video-ended .floating-texts {
+      opacity: 1;
+    }
+
+    .image-frame.video-ended .floating-text.clickable {
+      pointer-events: auto;
+    }
+
     html.no-intro .image-frame .entrance-video {
       opacity: 0;
       transition: none;
@@ -75,6 +81,15 @@
     html.no-intro .image-frame .final-image {
       opacity: 1;
       transition: none;
+    }
+
+    html.no-intro .image-frame .floating-texts {
+      opacity: 1;
+      transition: none;
+    }
+
+    html.no-intro .image-frame .floating-text.clickable {
+      pointer-events: auto;
     }
 
     .zone {
@@ -127,6 +142,8 @@
       pointer-events: none;
       z-index: 4;
       overflow: hidden;
+      opacity: 0;
+      transition: opacity 3s ease;
     }
 
     .floating-text {
@@ -149,7 +166,7 @@
     }
 
     .floating-text.clickable {
-      pointer-events: auto;
+      pointer-events: none;
       cursor: pointer;
       text-decoration: none;
       transition: text-shadow 0.2s ease, transform 0.2s ease, font-size 0.2s ease;
