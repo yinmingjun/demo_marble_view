@@ -27,7 +27,9 @@ details/entry.html                         开场视频 → 浮动文字时间�
    ├─ "走近太阳"            ─► details/entry_sun.html            主题封面(百叶窗入场)
    │                              │
    │                              ▼ 点击图片
-   │                          details/entry_sun_select.html      场景图(待补充交互)
+   │                          details/entry_sun_select.html      2 个选择热区
+   │                              ├─ 太阳如何影响地球?   ─► marble.worldlabs.ai (新标签页)
+   │                              └─ 太阳真的是静止火球? ─► marble.worldlabs.ai (新标签页)
    │
    ├─ "宇宙之眼"            ─► details/entry_cosmos.html         主题封面(百叶窗入场)
    │                              │
@@ -58,7 +60,7 @@ details/entry.html                         开场视频 → 浮动文字时间�
 ├── details/
 │   ├── entry.html               # 开场:视频 + 时间线浮动文字 + 3 个主题入口
 │   ├── entry_sun.html           # 走近太阳 · 主题封面
-│   ├── entry_sun_select.html    # 走近太阳 · 场景图
+│   ├── entry_sun_select.html    # 走近太阳 · 2 选 1(影响地球 / 静止火球)
 │   ├── entry_cosmos.html        # 宇宙之眼 · 主题封面
 │   ├── entry_cosmos_select.html # 宇宙之眼 · 3 选 1(光学 / 射电 / 中微子)
 │   ├── entry_mars.html          # 火星探秘 · 主题封面
