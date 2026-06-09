@@ -11,13 +11,14 @@
       padding: 0;
     }
 
-    @keyframes circleReveal {
-      from {
-        clip-path: circle(0% at 50% 50%);
-      }
-      to {
-        clip-path: circle(150% at 50% 50%);
-      }
+    @keyframes blindOpen {
+      from { transform: rotateX(0deg); }
+      to   { transform: rotateX(90deg); }
+    }
+
+    @keyframes blindsFadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; visibility: hidden; }
     }
 
     body {
@@ -41,16 +42,47 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      animation: circleReveal 3s ease-in both;
     }
 
     .image-wrap {
       flex: 1;
       min-height: 0;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
+    .blinds {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      pointer-events: none;
+      perspective: 1200px;
+      z-index: 2;
+      animation: blindsFadeOut 0.4s ease-out 1.3s forwards;
+    }
+
+    .blind {
+      flex: 1;
+      background: #000;
+      transform-origin: center;
+      animation: blindOpen 0.6s ease-in-out forwards;
+    }
+
+    .blind:nth-child(1)  { animation-delay: 0.00s; }
+    .blind:nth-child(2)  { animation-delay: 0.06s; }
+    .blind:nth-child(3)  { animation-delay: 0.12s; }
+    .blind:nth-child(4)  { animation-delay: 0.18s; }
+    .blind:nth-child(5)  { animation-delay: 0.24s; }
+    .blind:nth-child(6)  { animation-delay: 0.30s; }
+    .blind:nth-child(7)  { animation-delay: 0.36s; }
+    .blind:nth-child(8)  { animation-delay: 0.42s; }
+    .blind:nth-child(9)  { animation-delay: 0.48s; }
+    .blind:nth-child(10) { animation-delay: 0.54s; }
+    .blind:nth-child(11) { animation-delay: 0.60s; }
+    .blind:nth-child(12) { animation-delay: 0.66s; }
 
     .image-wrap a {
       display: contents;
@@ -141,6 +173,20 @@
       <a href="entry_mars_select.html" title="进入火星探秘">
         <img src="../images/mars1.png" alt="火星探秘">
       </a>
+      <div class="blinds" aria-hidden="true">
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+        <div class="blind"></div>
+      </div>
     </div>
     <!-- <nav class="action-bar">
       <a href="entry.html">返回</a>
