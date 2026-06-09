@@ -55,6 +55,7 @@
     .final-image {
       z-index: 0;
       opacity: 0;
+      transform: translateY(15px);
       transition: opacity 0.6s ease;
     }
 
@@ -66,26 +67,7 @@
       opacity: 1;
     }
 
-    .video-mask {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 8%;
-      background: #000;
-      z-index: 2;
-      pointer-events: none;
-      transition: opacity 0.6s ease;
-    }
-
-    .video-mask-top { top: 0; }
-    .video-mask-bottom { bottom: 0; }
-
-    .image-frame.video-ended .video-mask {
-      opacity: 0;
-    }
-
-    html.no-intro .image-frame .entrance-video,
-    html.no-intro .image-frame .video-mask {
+    html.no-intro .image-frame .entrance-video {
       opacity: 0;
       transition: none;
     }
@@ -226,8 +208,6 @@
   <div class="image-frame">
     <video class="entrance-video" src="../images/entry_mov.mp4" autoplay muted playsinline></video>
     <img class="final-image" src="../images/entry.jpg" alt="Entry">
-    <div class="video-mask video-mask-top"></div>
-    <div class="video-mask video-mask-bottom"></div>
 
     <div class="floating-texts">
       <span class="floating-text" style="left: 18%; top: 20%; --dur: 18s; --delay: 0s;">0 s</span>
