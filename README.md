@@ -24,6 +24,11 @@ index.html                                 封面 / 进入按钮
    ▼
 details/entry.html                         开场视频 → 浮动文字时间线
    │
+   ├─ "走近太阳"            ─► details/entry_sun.html            主题封面(百叶窗入场)
+   │                              │
+   │                              ▼ 点击图片
+   │                          details/entry_sun_select.html      场景图(待补充交互)
+   │
    ├─ "宇宙之眼"            ─► details/entry_cosmos.html         主题封面(百叶窗入场)
    │                              │
    │                              ▼ 点击图片
@@ -52,6 +57,8 @@ details/entry.html                         开场视频 → 浮动文字时间�
 ├── .gitignore
 ├── details/
 │   ├── entry.html               # 开场:视频 + 时间线浮动文字 + 3 个主题入口
+│   ├── entry_sun.html           # 走近太阳 · 主题封面
+│   ├── entry_sun_select.html    # 走近太阳 · 场景图
 │   ├── entry_cosmos.html        # 宇宙之眼 · 主题封面
 │   ├── entry_cosmos_select.html # 宇宙之眼 · 3 选 1(光学 / 射电 / 中微子)
 │   ├── entry_mars.html          # 火星探秘 · 主题封面
