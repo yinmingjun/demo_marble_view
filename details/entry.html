@@ -49,12 +49,18 @@
     .entrance-video {
       z-index: 1;
       opacity: 1;
+      inset: 0 auto 0 50%;
+      width: auto;
+      aspect-ratio: 4 / 3;
+      transform: translateX(-50%);
+      object-fit: cover;
+      filter: brightness(0.85);
     }
 
     .final-image {
       z-index: 0;
       opacity: 0;
-      transform: translateY(15px);
+      transform: translateY(20px);
     }
 
     .image-frame.video-ended .entrance-video {
@@ -289,7 +295,7 @@
       setTimeout(function () {
         video.pause();
         showFinal();
-      }, 5000);
+      }, 6000);
     }
   </script>
 </body>
