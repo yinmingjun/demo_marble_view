@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (new URLSearchParams(location.search).has('nointro')) {
+      document.documentElement.classList.add('no-intro');
+    }
+  </script>
   <title>Entry - Marble View</title>
   <style>
     * {
@@ -77,6 +82,17 @@
 
     .image-frame.video-ended .video-mask {
       opacity: 0;
+    }
+
+    html.no-intro .image-frame .entrance-video,
+    html.no-intro .image-frame .video-mask {
+      opacity: 0;
+      transition: none;
+    }
+
+    html.no-intro .image-frame .final-image {
+      opacity: 1;
+      transition: none;
     }
 
     .zone {
@@ -207,11 +223,6 @@
   </style>
 </head>
 <body>
-  <a class="home-link" href="../index.html" title="回到首页" aria-label="Home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V9.5z"/>
-    </svg>
-  </a>
   <div class="image-frame">
     <video class="entrance-video" src="../images/entry_mov.mp4" autoplay muted playsinline></video>
     <img class="final-image" src="../images/entry.jpg" alt="Entry">
@@ -264,17 +275,25 @@
 
     var video = document.querySelector('.entrance-video');
     var frame = document.querySelector('.image-frame');
+    var noIntro = document.documentElement.classList.contains('no-intro');
 
     function showFinal() {
       frame.classList.add('video-ended');
     }
 
-    video.addEventListener('error', showFinal);
-
-    setTimeout(function () {
+    if (noIntro) {
       video.pause();
+      video.removeAttribute('src');
+      video.load();
       showFinal();
-    }, 5000);
+    } else {
+      video.addEventListener('error', showFinal);
+
+      setTimeout(function () {
+        video.pause();
+        showFinal();
+      }, 5000);
+    }
   </script>
 </body>
 </html>
